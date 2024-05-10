@@ -13,12 +13,22 @@ class TrainController extends Controller
      */
     public function index()
     {
-        $trains = Train::all();
-        //dd($trains);
-        return view('guests.trains', compact('trains'));
+        $trainsToday = Train::where('data', '2024-05-10')->get();
+
+
+        $trainsOtherDay = Train::where('data', '!=', '2024-05-10')->orderBy('data', 'asc')->get();
+        //dd($trainsOtherDay);
+        $data = [
+            'trains' => [
+                'trainsToday' => $trainsToday,
+                'trainsOtherDay' => $trainsOtherDay
+            ]
+        ];
+        //dd($data);
+        return view('guests.trains', $data);
     }
 
-    
+
     /**
      * Display the specified resource.
      */
@@ -27,5 +37,4 @@ class TrainController extends Controller
         //dd($train);
         return view('guests.train', compact('train'));
     }
-
 }
