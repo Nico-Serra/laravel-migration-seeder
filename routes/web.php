@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\TrainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('guests.welcome');
+})->name('guests.home');
+
+Route::get('/trains', [TrainController::class, 'index'])->name('guests.trains');
+
+Route::get('/trains/{train}', [TrainController::class, 'show'])->name('guest.train.show');
