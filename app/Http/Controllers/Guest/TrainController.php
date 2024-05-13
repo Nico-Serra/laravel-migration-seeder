@@ -15,14 +15,19 @@ class TrainController extends Controller
     {
         $trainsToday = Train::where('data', '2024-05-10')->get();
 
+        $allTrains = Train::all();
+
+        //dd($allTrains);
 
         $trainsOtherDay = Train::where('data', '!=', '2024-05-10')->orderBy('data', 'asc')->get();
         //dd($trainsOtherDay);
         $data = [
             'trains' => [
                 'trainsToday' => $trainsToday,
-                'trainsOtherDay' => $trainsOtherDay
-            ]
+                'trainsOtherDay' => $trainsOtherDay,
+                
+            ],
+            'allTrains' => $allTrains
         ];
         //dd($data);
         return view('guests.trains', $data);

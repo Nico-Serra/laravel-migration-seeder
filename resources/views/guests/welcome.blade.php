@@ -12,8 +12,8 @@
                 examples below for how you can remix and restyle it to your liking.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ipsum consequatur pariatur quae ducimus at! Velit dolor inventore corporis placeat debitis iure doloremque deserunt, fuga obcaecati vel. Incidunt, eveniet eius.
             </p>
-            <button class="btn btn-primary btn-lg" type="button">
-                Example button
+            <button class="btn btn-warning" type="button">
+                <a href="/trains" class="text-decoration-none text-white">Go to Train</a>
             </button>
         </div>
     </div>
